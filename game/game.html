@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>dropping colors</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    margin: 0;
+    /* 内边距 */
+    padding: 0;
+    background-color: #f9f9f9;
+  }
+  h1 {
+    margin-top: 20px;
+    color: #333;
+  }
+
+  #gameContainer {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    border: 3px solid #333;
+    /* 外边距 左右自动居中 */
+    margin: 20px auto;
+    /* 溢出内容隐藏 */
+    overflow: hidden;
+    background-color: #fff;
+    /* 边框圆角 */
+    border-radius: 15px;
+    /* 阴影效果 水平垂直阴影偏移 模糊半径 透明度 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  .block {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    /* 鼠标悬停在元素上时的鼠标指针样式为手型  可点击*/
+    cursor: pointer;
+  }
+  #scoreText, #score {
+    color: #333;
+    font-size: 18px;
+  }
+  #win {
+    /* 初始不可见 */
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* 居中 */
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    /* 内边距 距离内容 */
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #333;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    /* 图层优先 */
+    z-index: 999;
+    width: 300px;
+    height: 200px;
+  }
+
+  button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+</style>
+</head>
+
+<body>
+<h1>^-^dropping colors*~</h1>
+<h2>选择喜欢的颜色->
+  <select id="colorPicker">
+    <option value="pink">pink</option>
+    <option value="lightgreen">lightgreen</option>
+    <option value="lightblue">lightblue</option>
+    <option value="yellow">yellow</option>
+    <option value="orange">orange</option>
+    <option value="purple">purple</option>
+  </select>
+</h2>
+
+<h2 id="scoreText">点击相应颜色方块来得到7分！</h2>
+<p id="score">得分：0</p>
+<div id="gameContainer"></div>
+<button onclick="startGame()">开始游戏</button>
+
+
+
+<!-- 游戏胜利 -->
+<div id="win">
+  <h2>胜利啦</h2>
+  <button onclick="resetGame()">重新开始</button>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
